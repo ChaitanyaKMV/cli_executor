@@ -156,7 +156,7 @@ When contributing, please follow these guidelines:
 
 My name is Chaitanya, and I work as a Software Engineer specializing in Automation Testing. I have a keen interest in automating tasks and simplifying workflows. If you have any questions or suggestions related to this project, feel free to reach out.
 
-Connect with me on LinkedIn: [Chaitanya Profile]([https://www.linkedin.com/in/your-linkedin-profile-url](https://www.linkedin.com/in/chaitanya-kumar-kakarla/))
+Connect with me on LinkedIn: [Chaitanya Profile](https://www.linkedin.com/in/chaitanya-kumar-kakarla/)
 
 
 ## License
