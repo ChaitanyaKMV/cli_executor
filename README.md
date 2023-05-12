@@ -56,9 +56,10 @@ Request body parameters:
    "command3"
  ]
 }
+```
 
 ### Example response:
-
+```
 [
   {
     "command": "command1",
@@ -76,6 +77,7 @@ Request body parameters:
     "stderr": "error message (if any)"
   }
 ]
+```
 
 # Contributing
 Contributions to the CLI Executor Service are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
@@ -87,8 +89,8 @@ Make your changes and ensure they are properly tested.
 Write clear and concise commit messages.
 Submit a pull request explaining your changes.
 
-# License
-This project is licensed under the MIT License. See the LICENSE file for details.
+## License
 
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 Feel free to modify and customize this template to fit your specific project requirements.
