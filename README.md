@@ -22,11 +22,12 @@ To run the CLI Executor Service, you need to have the following dependencies ins
 
 3. Install the required dependencies:
 
-   pip install -r requirements.txt
+   create a text file as `requirements.txt` and add above dependencies
+   Do install using pip in one shot `pip install -r requirements.txt`
 
 4. Start the service:
 
-   python <app_name>.py
+   python `app_name.py`
 
 The service will be available at `http://localhost:5000/`.
 
@@ -88,36 +89,38 @@ Here's an example of how to use systemd to run the script as a service on a Linu
 
 1. Create a systemd service unit file. Open a terminal and run the following command to create a new service unit file:
 
-`sudo nano /etc/systemd/system/cli_executor.service`
+   `sudo nano /etc/systemd/system/cli_executor.service`
+
 2. Add the following content to the 'cli_executor.service' file:
-```
-[Unit]
-Description=CLI Executor Service
-After=network.target
+   ```
+   [Unit]
+   Description=CLI Executor Service
+   After=network.target
 
-[Service]
-ExecStart=/usr/bin/python3 /path/to/cli_executor.py
-WorkingDirectory=/path/to/
-StandardOutput=syslog
-StandardError=syslog
-SyslogIdentifier=cli_executor
-User=your_username
-Group=your_groupname
+   [Service]
+   ExecStart=/usr/bin/python3 /path/to/cli_executor.py
+   WorkingDirectory=/path/to/
+   StandardOutput=syslog
+   StandardError=syslog
+   SyslogIdentifier=cli_executor
+   User=your_username
+   Group=your_groupname
 
-[Install]
-WantedBy=multi-user.target
-```
-Make sure to replace /path/to/cli_executor.py with the actual path to your Python script. Adjust the User and Group values to match the user and group you want the service to run as.
+   [Install]
+   WantedBy=multi-user.target
+   ```
+   Make sure to replace `/path/to/cli_executor.py` with the actual path to your Python script. 
+   Adjust the User and Group values to match the user and group you want the service to run as.
 
 3. Save the file and exit the text editor.
 
 4. Enable and start the service. Run the following commands to enable the service and start it:
 
-```
-sudo systemctl enable cli_executor
-sudo systemctl start cli_executor
-```
-The service will now be running in the background. You can check the status of the service using sudo systemctl status cli_executor.
+   ```
+   sudo systemctl enable cli_executor
+   sudo systemctl start cli_executor
+   ```
+   The service will now be running in the background. You can check the status of the service using sudo systemctl status cli_executor.
 
 ### On Windows, you can use NSSM (Non-Sucking Service Manager) to achieve a similar result. Here are the steps:
 
@@ -129,25 +132,32 @@ The service will now be running in the background. You can check the status of t
 
 4. Install the script as a service by running the following command:
 
-`nssm install CLI_Executor "C:\path\to\python.exe" "C:\path\to\cli_executor.py"`
+   `nssm install CLI_Executor "C:\path\to\python.exe" "C:\path\to\cli_executor.py"`
 
- Replace C:\path\to\python.exe with the actual path to your Python executable, and C:\path\to\cli_executor.py with the actual path to your Python script.
+   Replace `C:\path\to\python.exe` with the actual path to your Python executable, and `C:\path\to\cli_executor.py` with the actual path to your Python script.
 5. In the 'NSSM' GUI that opens, configure the service parameters as desired (e.g., set the startup directory, set the username and password, etc.). Click "Install service" to create the service.
 6. Start the service by running the following command:
 
-`nssm start CLI_Executor`
- The service will now be running in the background. You can check the status of the service using nssm status CLI_Executor.
- With these steps, you can ensure that the script runs continuously as a background service, even if the console or terminal is closed.
+   `nssm start CLI_Executor`
+   The service will now be running in the background. You can check the status of the service using nssm status CLI_Executor.
+   With these steps, you can ensure that the script runs continuously as a background service, even if the console or terminal is closed.
 
 # Contributing
 Contributions to the CLI Executor Service are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
 
 When contributing, please follow these guidelines:
 
-Fork the repository and create a new branch for your contribution.
-Make your changes and ensure they are properly tested.
-Write clear and concise commit messages.
-Submit a pull request explaining your changes.
+* Fork the repository and create a new branch for your contribution.
+* Make your changes and ensure they are properly tested.
+* Write clear and concise commit messages.
+* Submit a pull request explaining your changes.
+
+## About the Author
+
+My name is Chaitanya, and I work as a Software Engineer specializing in Automation Testing. I have a keen interest in automating tasks and simplifying workflows. If you have any questions or suggestions related to this project, feel free to reach out.
+
+Connect with me on LinkedIn: [Chaitanya Profile]([https://www.linkedin.com/in/your-linkedin-profile-url](https://www.linkedin.com/in/chaitanya-kumar-kakarla/))
+
 
 ## License
 
