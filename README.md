@@ -11,6 +11,7 @@ To run the CLI Executor Service, you need to have the following dependencies ins
 - Python (version 3.6 or higher)
 - Flask (install via `pip install flask`)
 - Paramiko (install via `pip install paramiko`)
+- Gunicorn ( install via `pip install gunicorn`)
 
 ## Usage
 
@@ -22,16 +23,29 @@ To run the CLI Executor Service, you need to have the following dependencies ins
 
 3. Install the required dependencies:
 
-   create a text file as `requirements.txt` and add above dependencies
+   Create a text file as `requirements.txt` and add above dependencies
    Do install using pip in one shot `pip install -r requirements.txt`
 
 4. Start the service:
 
-   python `app_name.py`
+   #### run `python app_name.py` (Not required to run. This will not handle concurrent requests!)
+   Run Gunicorn with the following command 
+      (Assuming your Flask app is in a file named app.py and your Gunicorn entry point is in a file named wsgi.py):
+   ```
+   gunicorn -w 4 -b 0.0.0.0:5000 wsgi:app
+   ```
 
-The service will be available at `http://localhost:5000/`.
+   - This command starts the Gunicorn server with 4 worker processes (-w 4) and binds it to the address 0.0.0.0:5000. The wsgi:app argument specifies the entry point for Gunicorn, where wsgi is the name of your Python module (file without the extension), and app is the Flask app instance within that module.
 
-[To run as a Service](#Run-cli_executor-as-a-backend-service)
+   - Ensure that you have Gunicorn installed (pip install gunicorn), and then you can use this command to run your Flask application in a production-ready manner. You no longer need to run the application with python app.py; Gunicorn will handle the server responsibilities.
+
+
+#### The service will be available at 
+```
+http://localhost:5000/
+```
+
+## [To run as a Service](#Run-cli_executor-as-a-backend-service)
 
 ## API Endpoints
 
@@ -47,8 +61,8 @@ Request body parameters:
 - `password` (string): Password for SSH authentication.
 - `commands` (list): List of CLI commands to execute.
 
-### Example request:
-```json
+### Example request: `json body input`
+```
 {
  "ip": "192.168.1.100",
  "username": "admin",
